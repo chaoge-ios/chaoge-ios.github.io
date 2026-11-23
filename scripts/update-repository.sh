@@ -35,6 +35,30 @@ else
   : > "$work_dir/Packages"
 fi
 
+# The source files its own packages under a category of its own. A
+# package's control file can only carry one of the sections Apelin's
+# build description names, so the index rewrites this repository's
+# packages here, before Packages.xz and Release are made from it; the
+# .deb files are left as they are.
+if ((${#packages[@]} > 0)); then
+  awk '
+    BEGIN { RS = ""; FS = "\n"; OFS = "\n"; ORS = "\n\n" }
+    {
+      ours = 0
+      for (i = 1; i <= NF; i++) {
+        if ($i ~ /^Package: com\.chaoge\./) { ours = 1 }
+      }
+      if (ours) {
+        for (i = 1; i <= NF; i++) {
+          if ($i ~ /^Section:/) { $i = "Section: Apelin&AI" }
+        }
+      }
+      print
+    }
+  ' "$work_dir/Packages" > "$work_dir/Packages.sections"
+  mv "$work_dir/Packages.sections" "$work_dir/Packages"
+fi
+
 # A package with no Section is filed under nothing; refuse it here.
 awk '
   BEGIN { RS = ""; FS = "\n" }
