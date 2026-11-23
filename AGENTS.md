@@ -55,6 +55,10 @@ all `iphoneos-arm64e`), copied with the file name the backup gives them.
   Patcher, Apelin itself and five of its development packages.
 - Leave out `com.chaoge.*` too: those are built in their own Apelin projects and
   arrive through `apelin_package_publish`.
+- Leave out `wiki.qaq.apelin.toolchain.*` as well: a device gets its toolchain from
+  Apelin's Settings ▸ Toolchains, not from this source. Two of them
+  (Command Line Tools 16.4 and 27.0, 62 and 63 MB) had been mirrored and were
+  removed on 24 Nov 2026.
 - Push in batches. About 35 MB per push is comfortable, 60 MB works, and one 190 MB
   push failed three times with `SecureTransport error: OSStatus -36`; several small
   commits are better than one large one.
