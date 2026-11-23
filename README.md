@@ -1,8 +1,8 @@
-# chaoge-ios/chaoge-ios.github.io
+# chaoge-ios 越狱源
+
+chaoge-ios 的越狱插件 APT 源，地址是 **https://chaoge-ios.github.io/**——在 Irisin（或 Sileo）里添加它就能看到源里的包。
 
 An APT source for jailbroken iOS, published with Apelin.
-
-Add `https://chaoge-ios.github.io/` in Irisin.
 
 ## How it works
 

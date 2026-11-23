@@ -41,6 +41,7 @@ jobs:
         env:
           REPOSITORY_NAME: ${{ github.event.repository.name }}
           REPOSITORY_OWNER: ${{ github.repository_owner }}
+          REPOSITORY_TITLE: chaoge-ios
           SOURCE_URL: ${{ steps.pages.outputs.base_url }}
         run: ./scripts/update-repository.sh
 
