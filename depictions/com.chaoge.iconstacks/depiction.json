@@ -1,0 +1,135 @@
+{
+  "class": "DepictionTabView",
+  "minVersion": "0.4",
+  "tintColor": "#007AFF",
+  "tabs": [
+    {
+      "tabname": "介绍",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionHeaderView",
+          "title": "应用堆叠"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "把常用入口收进图标，不打乱主屏排列。默认在主屏应用图标上**向下滑动**，即可展开四个快捷槽；点击槽位启动应用，点击空白处收起。源图标始终留在原位，不永久改变主屏图标排列，Dock 图标不参与。",
+          "useSpacing": true
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "四个槽位，按需配置"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- 靠近屏幕边缘时，槽位按边缘位置镜像排列，源图标仍留在原位。\n- 展开时实时虚化当前背景，收起后恢复主屏。\n- 在主屏编辑态滑动尚未配置的源图标，会出现四个灰色「＋」空槽；选中应用或确认组合后才保存，取消选择不会新建堆叠。\n- 「显示空白格」可关闭：普通状态不显示空槽，全空堆叠也不展开；编辑态仍保留四格，方便继续配置。",
+          "useSpacing": true
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "设置管理、搜索与备份"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "在**设置 › 应用堆叠**集中管理：\n\n- 按来源名称或标识搜索堆叠。\n- 选择槽位应用时，可按应用名或包名搜索。\n- 替换或清空已有槽位，整理常用入口。\n- 排序先预览，点「完成」后才保存。\n- 支持 plist 配置备份与恢复，便于保留和迁移自己的堆叠安排。",
+          "useSpacing": true
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionHeaderView",
+          "title": "支持添加 PanoramicView 分屏组合"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "槽位除了单个应用，还能保存 PanoramicView 的上下双应用组合入口。这是**可选联动**：应用堆叠负责配置、保存和提供入口，实际分屏由 PanoramicView 处理；应用堆叠**不自带分屏引擎，也不强制依赖 PanoramicView**。",
+          "useSpacing": true
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "方法一：直接选择「分屏组合」"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "1. 在主屏编辑态选择槽位，或进入「设置 › 应用堆叠」的堆叠详情，选择「分屏组合」。\n2. 为上、下位置选择两个不同、且都已安装的应用。\n3. 按需填写组合名称、主应用和横屏侧拉选项；可选项留空时，不覆盖 PanoramicView 中对应的现有设置。\n4. 确认后将组合保存到槽位。",
+          "useSpacing": true
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "方法二：粘贴 PanoramicView 共享书签"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "1. 长按 PanoramicView 的主屏组合书签，依次选择「共享书签」→「拷贝」。\n2. 在应用堆叠里选择「粘贴共享书签」，载入组合预览。\n3. 检查两个应用和可选项，确认后保存；取消预览不会保存。\n\n只接受 `App-prefs://panoramic/pair?…` 格式的组合链接。粘贴只载入预览，**不会自动打开链接或启动分屏**。",
+          "useSpacing": true
+        },
+        {
+          "class": "DepictionSubheaderView",
+          "title": "方法三：把已有组合书签作为堆叠源"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "PanoramicView 已保存到主屏的组合书签，也可作为堆叠源：进入主屏编辑态，在该书签上滑动即可配置。书签原有的普通点击行为保留，不会把组合中两个应用各自的堆叠合并到一起。",
+          "useSpacing": true
+        },
+        {
+          "class": "DepictionSeparatorView"
+        },
+        {
+          "class": "DepictionHeaderView",
+          "title": "使用条件与兼容范围"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- **基础功能：**运行于越狱环境的 SpringBoard。构建最低版本为 iOS 16.0，这不是对所有 iOS 16 及以后版本的兼容保证。\n- **PanoramicView 联动：**需要另行安装 PanoramicView，并让其主模块在 SpringBoard 正常加载；组合中的两个应用都必须已安装。仅有组合链接不能代替这些条件。\n- **未安装 PanoramicView：**不显示新增分屏组合的入口，已有组合配置保留，仍可替换或清空；单应用堆叠无需 PanoramicView。\n- **当前验证范围：**实际设备为 iOS 17.3、RootHide。Rootless 仅完成构建，尚未进行真机验收。不保证任意设备、任意系统或任意 PanoramicView 版本均兼容。",
+          "useSpacing": true
+        },
+        {
+          "class": "DepictionHeaderView",
+          "title": "插件信息"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "版本",
+          "text": "1.0.0"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "作者",
+          "text": "chaoge"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "包标识",
+          "text": "com.chaoge.iconstacks"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "最低构建系统",
+          "text": "iOS 16.0"
+        },
+        {
+          "class": "DepictionTableTextView",
+          "title": "可选联动",
+          "text": "PanoramicView（非强制依赖）"
+        }
+      ]
+    },
+    {
+      "tabname": "更新记录",
+      "class": "DepictionStackView",
+      "views": [
+        {
+          "class": "DepictionSubheaderView",
+          "title": "1.0.0"
+        },
+        {
+          "class": "DepictionMarkdownView",
+          "markdown": "- 整理为 1.0.0 正式版，完善四槽应用堆叠、设置管理、备份恢复及可选 PanoramicView 分屏组合的使用说明。\n- 解锁后首次展开，恢复为与普通展开一致的 **0.24 秒动画**；保留首开稳定虚化、中心图标边缘处理，以及与原生图标的无动画交接。\n- 修正镜像配置保存失败时的结果反馈：不再静默报告成功，在同一锁内尝试回滚，失败时不发送成功通知。这不是对掉电场景的原子事务保证。\n- 整理代码，并按主工程记录完成七组回归；这不代表 Rootless 或其他设备已通过真机验收。",
+          "useSpacing": true
+        }
+      ]
+    }
+  ]
+}
